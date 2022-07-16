@@ -8,5 +8,6 @@ node() {
     stage('postbuild') {
         junit '**/TEST-*.xml'
         archive '**/*.war'
+		emailext attachLog: true, body: '', compressLog: true, subject: 'Build is Completd', to: 'dvops@aipl.com'
     }
 }
